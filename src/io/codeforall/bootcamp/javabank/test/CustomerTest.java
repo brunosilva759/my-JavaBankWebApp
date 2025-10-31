@@ -6,10 +6,11 @@ import io.codeforall.bootcamp.javabank.managers.AccountManager;
 
 public class CustomerTest {
 
+
     public boolean test() {
 
         AccountManager accountManager = new AccountManager();
-        Customer customer = new Customer();
+        Customer customer = new Customer(1, "");
         customer.setAccountManager(accountManager);
 
         // customer should start with zero balance

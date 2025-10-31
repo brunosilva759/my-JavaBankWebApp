@@ -28,11 +28,11 @@ public class Bank {
      * @param customer the new bank customer
      * @see Customer#setAccountManager(AccountManager)
      */
-    public void addCustomer(Customer customer) {
-//        Customer customer  = new Customer(nextCustomerId++, name);
+    public Customer addCustomer(Customer customer) {
+        Customer c  = new Customer(nextCustomerId++, "");
         customers.add(customer);
         customer.setAccountManager(accountManager);
-//        return customer;
+        return customer;
     }
 
     /**

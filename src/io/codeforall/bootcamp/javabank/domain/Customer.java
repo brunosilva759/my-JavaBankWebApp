@@ -18,10 +18,10 @@ public class Customer {
     private String name;
 
 
-//    public Customer(int id, String name) {
-//
-//
-//    }
+    public Customer(int id, String name) {
+
+
+    }
 
 
 
