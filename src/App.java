@@ -23,10 +23,22 @@ public class App {
 
         String[] menuOptions = {"View Balance", "Make Deposit", "Make Withdrawal", "Open Account", "Quit"};
 
-
+        //integer set input scanner
         IntegerInputScanner customer = new IntegerInputScanner();
         customer.setMessage("Enter an account ID: ");
-        prompt.getUserInput(customer);
+        int verification =prompt.getUserInput(customer);
+
+        boolean accountExists = false;
+
+        for(Customer c : bank.getCustomers()) {
+            if(c.getId() != verification){
+                accountExists = true;
+            } else {
+                System.out.println("Account ID not valid");
+            }
+
+        }
+
 
         MenuInputScanner scanner = new MenuInputScanner(menuOptions);
         scanner.setMessage("Welcome to Java Bank");
@@ -56,6 +68,10 @@ public class App {
                 System.out.println("Please enter your name: ");
                 StringInputScanner openAccount = new StringInputScanner();
                 String accountName = prompt.getUserInput(openAccount);
+                break;
+
+            case 5:
+                System.out.println();
                 break;
 
             default:

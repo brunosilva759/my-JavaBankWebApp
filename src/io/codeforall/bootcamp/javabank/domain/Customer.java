@@ -76,4 +76,8 @@ public class Customer {
         return balance;
     }
 
+
+    public int getId() {
+        return id;
+    }
 }
