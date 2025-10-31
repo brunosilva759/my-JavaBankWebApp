@@ -12,7 +12,7 @@ public class Bank {
 
     private AccountManager accountManager;
     private Set<Customer> customers = new HashSet<>();
-
+    private int nextCustomerId = 1;
     /**
      * Creates a new instance of Bank and initializes it with the given account manager
      *
@@ -29,8 +29,10 @@ public class Bank {
      * @see Customer#setAccountManager(AccountManager)
      */
     public void addCustomer(Customer customer) {
+//        Customer customer  = new Customer(nextCustomerId++, name);
         customers.add(customer);
         customer.setAccountManager(accountManager);
+//        return customer;
     }
 
     /**
