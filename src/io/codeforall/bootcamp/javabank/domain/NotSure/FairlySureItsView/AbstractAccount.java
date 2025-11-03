@@ -1,4 +1,6 @@
-package io.codeforall.bootcamp.javabank.domain.account;
+package io.codeforall.bootcamp.javabank.domain.NotSure.FairlySureItsView;
+
+import io.codeforall.bootcamp.javabank.domain.model.account.Account;
 
 /**
  * A generic account domain entity to be used as a base for concrete types of accounts

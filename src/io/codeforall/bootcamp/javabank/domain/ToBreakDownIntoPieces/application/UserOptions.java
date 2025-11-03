@@ -1,10 +1,10 @@
-package io.codeforall.bootcamp.javabank.application;
+package io.codeforall.bootcamp.javabank.domain.ToBreakDownIntoPieces.application;
 
-import io.codeforall.bootcamp.javabank.application.operations.BalanceOperation;
-import io.codeforall.bootcamp.javabank.application.operations.NewAccountOperation;
-import io.codeforall.bootcamp.javabank.application.operations.Operation;
-import io.codeforall.bootcamp.javabank.application.operations.transaction.DepositOperation;
-import io.codeforall.bootcamp.javabank.application.operations.transaction.WithdrawOperation;
+import io.codeforall.bootcamp.javabank.domain.controller.BalanceController;
+import io.codeforall.bootcamp.javabank.domain.controller.operations.NewAccountOperation;
+import io.codeforall.bootcamp.javabank.domain.controller.operations.Operation;
+import io.codeforall.bootcamp.javabank.domain.controller.operations.transaction.DepositOperation;
+import io.codeforall.bootcamp.javabank.domain.controller.operations.transaction.WithdrawOperation;
 
 /**
  * The possible {@link Operation} types
@@ -12,7 +12,7 @@ import io.codeforall.bootcamp.javabank.application.operations.transaction.Withdr
 public enum UserOptions {
 
     /**
-     * @see BalanceOperation
+     * @see BalanceController
      */
     GET_BALANCE(1, Messages.MENU_GET_BALANCE),
 

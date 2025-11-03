@@ -1,9 +1,10 @@
-package io.codeforall.bootcamp.javabank.application.operations;
+package io.codeforall.bootcamp.javabank.domain.controller.operations;
 
-import io.codeforall.bootcamp.javabank.domain.account.AccountType;
-import io.codeforall.bootcamp.javabank.application.BankApplication;
-import io.codeforall.bootcamp.javabank.application.Messages;
-import io.codeforall.bootcamp.javabank.application.UserOptions;
+import io.codeforall.bootcamp.javabank.domain.NotSure.FairlySureItsView.AccountType;
+import io.codeforall.bootcamp.javabank.domain.ToBreakDownIntoPieces.application.BankApplication;
+import io.codeforall.bootcamp.javabank.domain.ToBreakDownIntoPieces.application.Messages;
+import io.codeforall.bootcamp.javabank.domain.ToBreakDownIntoPieces.application.UserOptions;
+import io.codeforall.bootcamp.javabank.domain.view.AbstractBankOperation;
 
 /**
  * A bank operation to create new accounts

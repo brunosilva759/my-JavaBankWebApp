@@ -1,8 +1,8 @@
-package io.codeforall.bootcamp.javabank.domain;
+package io.codeforall.bootcamp.javabank.domain.model;
 
-import io.codeforall.bootcamp.javabank.domain.account.Account;
-import io.codeforall.bootcamp.javabank.domain.account.AccountType;
-import io.codeforall.bootcamp.javabank.managers.AccountManager;
+import io.codeforall.bootcamp.javabank.domain.model.account.Account;
+import io.codeforall.bootcamp.javabank.domain.NotSure.FairlySureItsView.AccountType;
+import io.codeforall.bootcamp.javabank.domain.model.managers.AccountManager;
 
 import java.util.HashMap;
 import java.util.HashSet;

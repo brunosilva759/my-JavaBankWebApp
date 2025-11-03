@@ -1,8 +1,8 @@
-package io.codeforall.bootcamp.javabank.managers;
+package io.codeforall.bootcamp.javabank.domain.model.managers;
 
-import io.codeforall.bootcamp.javabank.domain.account.Account;
-import io.codeforall.bootcamp.javabank.domain.account.AccountType;
-import io.codeforall.bootcamp.javabank.factories.AccountFactory;
+import io.codeforall.bootcamp.javabank.domain.model.account.Account;
+import io.codeforall.bootcamp.javabank.domain.NotSure.FairlySureItsView.AccountType;
+import io.codeforall.bootcamp.javabank.domain.model.factories.AccountFactory;
 
 import java.util.HashMap;
 import java.util.Map;

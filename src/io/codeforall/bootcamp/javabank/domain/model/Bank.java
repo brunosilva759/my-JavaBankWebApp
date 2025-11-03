@@ -1,6 +1,6 @@
-package io.codeforall.bootcamp.javabank.domain;
+package io.codeforall.bootcamp.javabank.domain.model;
 
-import io.codeforall.bootcamp.javabank.managers.AccountManager;
+import io.codeforall.bootcamp.javabank.domain.model.managers.AccountManager;
 
 import java.util.HashMap;
 import java.util.Set;

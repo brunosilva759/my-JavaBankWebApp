@@ -1,4 +1,6 @@
-package io.codeforall.bootcamp.javabank.domain.account;
+package io.codeforall.bootcamp.javabank.domain.model.account;
+
+import io.codeforall.bootcamp.javabank.domain.NotSure.FairlySureItsView.AccountType;
 
 /**
  * Common interface for bank accounts, provides methods to access account

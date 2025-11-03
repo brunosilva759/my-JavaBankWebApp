@@ -1,9 +1,9 @@
 package io.codeforall.bootcamp.javabank.test;
 
-import io.codeforall.bootcamp.javabank.domain.Bank;
-import io.codeforall.bootcamp.javabank.domain.Customer;
-import io.codeforall.bootcamp.javabank.domain.account.AccountType;
-import io.codeforall.bootcamp.javabank.managers.AccountManager;
+import io.codeforall.bootcamp.javabank.domain.model.Bank;
+import io.codeforall.bootcamp.javabank.domain.model.Customer;
+import io.codeforall.bootcamp.javabank.domain.NotSure.FairlySureItsView.AccountType;
+import io.codeforall.bootcamp.javabank.domain.model.managers.AccountManager;
 
 public class BankTest {
 

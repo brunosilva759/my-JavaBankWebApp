@@ -1,4 +1,6 @@
-package io.codeforall.bootcamp.javabank.domain.account;
+package io.codeforall.bootcamp.javabank.domain.NotSure.FairlySureItsView;
+
+import io.codeforall.bootcamp.javabank.domain.model.account.Account;
 
 /**
  * The possible {@link Account} types

@@ -1,7 +1,8 @@
-package io.codeforall.bootcamp.javabank.application.operations;
+package io.codeforall.bootcamp.javabank.domain.view;
 
-import io.codeforall.bootcamp.javabank.application.BankApplication;
-import io.codeforall.bootcamp.javabank.domain.Customer;
+import io.codeforall.bootcamp.javabank.domain.ToBreakDownIntoPieces.application.BankApplication;
+import io.codeforall.bootcamp.javabank.domain.controller.operations.Operation;
+import io.codeforall.bootcamp.javabank.domain.model.Customer;
 
 /**
  * A generic bank operation to be used as a base for concrete types of bank operations

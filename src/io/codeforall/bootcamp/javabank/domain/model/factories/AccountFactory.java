@@ -1,9 +1,9 @@
-package io.codeforall.bootcamp.javabank.factories;
+package io.codeforall.bootcamp.javabank.domain.model.factories;
 
-import io.codeforall.bootcamp.javabank.domain.account.Account;
-import io.codeforall.bootcamp.javabank.domain.account.AccountType;
-import io.codeforall.bootcamp.javabank.domain.account.CheckingAccount;
-import io.codeforall.bootcamp.javabank.domain.account.SavingsAccount;
+import io.codeforall.bootcamp.javabank.domain.model.account.Account;
+import io.codeforall.bootcamp.javabank.domain.NotSure.FairlySureItsView.AccountType;
+import io.codeforall.bootcamp.javabank.domain.NotSure.FairlySureItsView.CheckingAccount;
+import io.codeforall.bootcamp.javabank.domain.NotSure.FairlySureItsView.SavingsAccount;
 
 /**
  * A factory for creating accounts of different types

@@ -9,7 +9,7 @@
         <property name="build.dir" value="build" />
         <property name="lib.dir" value="lib"/>
         <property name="classes.dir" value="${build.dir}/classes" />
-        <property name="main.class" value="io.codeforall.bootcamp.javabank.App" />
+        <property name="main.class" value="io.codeforall.bootcamp.javabank.domain.controller.App" />
         <path id="classpath">
             <fileset dir="${lib.dir}" includes="**/*.jar"/>
         </path>
