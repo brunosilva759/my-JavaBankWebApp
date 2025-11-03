@@ -29,7 +29,7 @@ public class App {
         LoginController loginController = new LoginController(bank, prompt);
         Customer customer = loginController.login();
 
-        MenuController menuController = new MenuController(bank, prompt);
+
     }
 
     public static void main(String[] args) {

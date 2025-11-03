@@ -16,39 +16,22 @@ import java.util.Map;
 
 public class MenuController {
 
-    private Prompt prompt;
-    private MenuInputScanner mainMenu;
-    private Map<Integer, Operation> operationMap;
+    private MenuView view;
 
-    public MenuController(Prompt prompt, Customer customer){
-        this.prompt = prompt;
-        this.operationMap = buildOperationsMap(customer);
+    public MenuController(Prompt prompt) {
+        this.view = new MenuView(prompt);
     }
 
+public void run() {
 
-    private void menuLoop() {
-
-        int userChoice = prompt.getUserInput(mainMenu);
-
-        if (userChoice == UserOptions.QUIT.getOption()) {
-            return;
-        }
-
-        operationsMap.get(userChoice).execute();
-        menuLoop();
+    int choice;
+    while (choice != UserOptions.QUIT.getOption()){
+        choice = view.buildMainMenu();
     }
 
+}
 
 
-    private Map<Integer, Operation> buildOperationsMap(Customer customer) {
 
-        Map<Integer, Operation> map = new HashMap<>();
-        map.put(UserOptions.GET_BALANCE.getOption(), new BalanceController());
-        map.put(UserOptions.DEPOSIT.getOption(), new DepositOperation());
-        map.put(UserOptions.WITHDRAW.getOption(), new WithdrawOperation());
-        map.put(UserOptions.OPEN_ACCOUNT.getOption(), new NewAccountOperation());
-
-        return map;
-    }
 
 }

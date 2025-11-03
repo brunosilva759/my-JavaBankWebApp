@@ -58,13 +58,6 @@ public class BankApplication {
     /**
      * Starts the bank application
      */
-    public void start() {
-
-        LoginController loginController = new LoginController(bank, prompt);
-        Customer customer = loginController.login();
-
-        MenuController menuController = new MenuController(bank, prompt);
-
 
 
 //        mainMenu = buildMainMenu();
@@ -113,4 +106,3 @@ public class BankApplication {
 
 //        return map;
 //    }
-}
