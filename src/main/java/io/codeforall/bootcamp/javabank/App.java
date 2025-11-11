@@ -2,10 +2,10 @@ package io.codeforall.bootcamp.javabank;
 
 import io.codeforall.bootcamp.javabank.controller.Controller;
 import io.codeforall.bootcamp.javabank.factories.AccountFactory;
-import io.codeforall.bootcamp.javabank.persistence.ConnectionManager;
+import io.codeforall.bootcamp.javabank.persistence.SessionManager;
 import io.codeforall.bootcamp.javabank.services.AuthServiceImpl;
-import io.codeforall.bootcamp.javabank.services.jdbc.JdbcAccountService;
-import io.codeforall.bootcamp.javabank.services.jdbc.JdbcCustomerService;
+import io.codeforall.bootcamp.javabank.services.AccountServiceImpl;
+import io.codeforall.bootcamp.javabank.services.CustomerServiceImpl;
 
 public class App {
 
@@ -17,12 +17,18 @@ public class App {
 
     private void bootStrap() {
 
-        ConnectionManager connectionManager = new ConnectionManager();
+        SessionManager sessionManager = new SessionManager();
 
         AccountFactory accountFactory = new AccountFactory();
-        JdbcAccountService accountService = new JdbcAccountService(connectionManager, accountFactory);
-        JdbcCustomerService customerService = new JdbcCustomerService(connectionManager);
+
+
+
+        AccountServiceImpl accountService = new AccountServiceImpl(sessionManager, accountFactory);
+        CustomerServiceImpl customerService = new CustomerServiceImpl(sessionManager);
         customerService.setAccountService(accountService);
+
+
+
 
         Bootstrap bootstrap = new Bootstrap();
         bootstrap.setAuthService(new AuthServiceImpl());
@@ -34,6 +40,6 @@ public class App {
         // start application
         controller.init();
 
-        connectionManager.close();
+        sessionManager.stopSession();
     }
 }

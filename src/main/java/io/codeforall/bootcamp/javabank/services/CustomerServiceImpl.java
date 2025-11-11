@@ -1,20 +1,17 @@
-package io.codeforall.bootcamp.javabank.services.jdbc;
+package io.codeforall.bootcamp.javabank.services;
 
-import io.codeforall.bootcamp.javabank.persistence.ConnectionManager;
 import io.codeforall.bootcamp.javabank.model.Customer;
 import io.codeforall.bootcamp.javabank.model.account.Account;
-import io.codeforall.bootcamp.javabank.services.AccountService;
-import io.codeforall.bootcamp.javabank.services.CustomerService;
 
 import java.sql.*;
 import java.util.*;
 
-public class JdbcCustomerService implements CustomerService {
+public class CustomerServiceImpl implements CustomerService {
 
     private AccountService accountService;
     private ConnectionManager connectionManager;
 
-    public JdbcCustomerService(ConnectionManager connectionManager) {
+    public CustomerServiceImpl(ConnectionManager connectionManager) {
         this.connectionManager = connectionManager;
     }
 
@@ -94,7 +91,7 @@ public class JdbcCustomerService implements CustomerService {
         }
 
         return new LinkedList<>(customers.values());
-    }
+  }
 
     @Override
     public Set<Integer> listCustomerAccountIds(Integer id) {
