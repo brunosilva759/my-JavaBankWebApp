@@ -1,13 +1,15 @@
-package io.codeforall.bootcamp.javabank.persistence;
+package io.codeforall.bootcamp.javabank.persistence.jdbc;
+
+import io.codeforall.bootcamp.javabank.persistence.SessionManager;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class ConnectionManager {
+public class JDBCSessionManager implements SessionManager<Connection> {
 
     private static final String DEFAULT_USER = "postgres";
-    private static final String DEFAULT_PASS = "postgres";
+    private static final String DEFAULT_PASS = "";
     private static final String DEFAULT_HOST = "localhost";
     public static final Integer DEFAULT_PORT = 5432;
     private static final String DEFAULT_DB = "javabank";
@@ -19,29 +21,31 @@ public class ConnectionManager {
     private String pass;
     private Connection connection;
 
-    public ConnectionManager(String user, String pass, String host, Integer port, String database) {
+    public JDBCSessionManager(String user, String pass, String host, Integer port, String database) {
         this.user = user;
         this.pass = pass;
         this.dbUrl = CONNECTOR + "//" + host + ":" + port + "/" + database;
     }
 
-    public ConnectionManager() {
+    public JDBCSessionManager() {
         this(DEFAULT_USER, DEFAULT_PASS, DEFAULT_HOST, DEFAULT_PORT, DEFAULT_DB);
     }
 
-    public Connection getConnection() {
+
+    @Override
+    public void startSession() {
 
         try {
-            if (connection == null) {
+            if (connection == null || connection.isClosed()) {
                 connection = DriverManager.getConnection(dbUrl, user, pass);
             }
         } catch (SQLException ex) {
             System.out.println("Failure to connect to database : " + ex.getMessage());
         }
-        return connection;
     }
 
-    public void close() {
+    @Override
+    public void stopSession() {
         try {
             if (connection != null) {
                 connection.close();
@@ -49,5 +53,11 @@ public class ConnectionManager {
         } catch (SQLException ex) {
             System.out.println("Failure to close database connections: " + ex.getMessage());
         }
+    }
+
+    @Override
+    public Connection getCurrentSession() {
+        startSession();
+        return connection;
     }
 }
