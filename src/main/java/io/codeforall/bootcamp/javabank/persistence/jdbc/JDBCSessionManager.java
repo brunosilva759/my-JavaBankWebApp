@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class JDBCSessionManager implements SessionManager<Connection> {
 
-    private static final String DEFAULT_USER = "postgres";
+    private static final String DEFAULT_USER = "codecadet";
     private static final String DEFAULT_PASS = "";
     private static final String DEFAULT_HOST = "localhost";
     public static final Integer DEFAULT_PORT = 5432;
