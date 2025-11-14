@@ -1,5 +1,6 @@
 package io.codeforall.bootcamp.javabank.model.account;
 
+import io.codeforall.bootcamp.javabank.model.Customer;
 import io.codeforall.bootcamp.javabank.model.Model;
 
 /**
@@ -61,17 +62,9 @@ public interface Account extends Model {
      */
     boolean canWithdraw();
 
-    /**
-     * Returns the owning customer's Id
-     *
-     * @return the owning customer's Id
-     */
-    Integer getCustomerId();
 
-    /**
-     * Sets the owning customer id
-     *
-     * @param id the owner customer id
-     */
-    void setCustomerId(Integer id);
+    Customer getCustomer();
+
+
+    void setCustomer(Customer customer);
 }

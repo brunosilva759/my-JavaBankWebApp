@@ -1,10 +1,10 @@
 package io.codeforall.bootcamp.javabank;
 
 import io.codeforall.bootcamp.javabank.controller.Controller;
-import io.codeforall.bootcamp.javabank.persistence.daos.jdbc.JDBCAccountDao;
-import io.codeforall.bootcamp.javabank.persistence.daos.jdbc.JDBCCustomerDao;
-import io.codeforall.bootcamp.javabank.persistence.jdbc.JDBCSessionManager;
-import io.codeforall.bootcamp.javabank.persistence.jdbc.JDBCTransactionManager;
+import io.codeforall.bootcamp.javabank.persistence.daos.jdbc.JPAAccountDao;
+import io.codeforall.bootcamp.javabank.persistence.daos.jdbc.JPACustomerDao;
+import io.codeforall.bootcamp.javabank.persistence.jdbc.JPASessionManager;
+import io.codeforall.bootcamp.javabank.persistence.jdbc.JPATransactionManager;
 import io.codeforall.bootcamp.javabank.services.AccountServiceImpl;
 import io.codeforall.bootcamp.javabank.services.AuthServiceImpl;
 import io.codeforall.bootcamp.javabank.services.CustomerServiceImpl;
@@ -19,11 +19,10 @@ public class App {
 
     private void bootStrap() {
 
-        JDBCSessionManager JDBCSessionManager = new JDBCSessionManager();
-        JDBCTransactionManager transactionManager = new JDBCTransactionManager();
-        transactionManager.setConnectionManager(JDBCSessionManager);
-        JDBCAccountDao JDBCAccountDao = new JDBCAccountDao();
-        JDBCCustomerDao JDBCCustomerDao = new JDBCCustomerDao();
+        JPASessionManager JDBCSessionManager = new JPASessionManager();
+        JPATransactionManager transactionManager = new JPATransactionManager();
+        JPAAccountDao JDBCAccountDao = new JPAAccountDao();
+        JPACustomerDao JDBCCustomerDao = new JPACustomerDao();
 
         JDBCAccountDao.setConnectionManager(JDBCSessionManager);
         JDBCCustomerDao.setAccountDAO(JDBCAccountDao);

@@ -1,5 +1,7 @@
 package io.codeforall.bootcamp.javabank.persistence;
 
+import javax.persistence.EntityManager;
+
 public interface SessionManager<T> {
     /**
      * Starts the session
@@ -16,5 +18,5 @@ public interface SessionManager<T> {
      *
      * @return the current session
      */
-    T getCurrentSession();
+    EntityManager getCurrentSession();
 }

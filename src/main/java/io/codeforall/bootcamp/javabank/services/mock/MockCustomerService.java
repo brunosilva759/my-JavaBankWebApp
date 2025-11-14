@@ -1,5 +1,6 @@
 package io.codeforall.bootcamp.javabank.services.mock;
 
+import io.codeforall.bootcamp.javabank.model.account.AbstractAccount;
 import io.codeforall.bootcamp.javabank.services.CustomerService;
 import io.codeforall.bootcamp.javabank.model.Customer;
 import io.codeforall.bootcamp.javabank.model.account.Account;
@@ -45,7 +46,7 @@ public class MockCustomerService implements CustomerService {
     public Set<Integer> listCustomerAccountIds(Integer id) {
 
         Set<Integer> accountIds = new HashSet<>();
-        List<Account> accountList = customerMap.get(id).getAccounts();
+        List<AbstractAccount> accountList = customerMap.get(id).getAccounts();
 
         for (Account account : accountList) {
             accountIds.add(account.getId());
@@ -60,7 +61,7 @@ public class MockCustomerService implements CustomerService {
     @Override
     public double getBalance(int id) {
 
-        List<Account> accounts = customerMap.get(id).getAccounts();
+        List<AbstractAccount> accounts = customerMap.get(id).getAccounts();
 
         double balance = 0;
         for (Account account : accounts) {

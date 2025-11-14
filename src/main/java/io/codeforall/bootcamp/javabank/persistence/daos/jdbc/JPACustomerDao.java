@@ -1,7 +1,7 @@
 package io.codeforall.bootcamp.javabank.persistence.daos.jdbc;
 
 import io.codeforall.bootcamp.javabank.persistence.daos.CustomerDao;
-import io.codeforall.bootcamp.javabank.persistence.jdbc.JDBCSessionManager;
+import io.codeforall.bootcamp.javabank.persistence.jdbc.JPASessionManager;
 import io.codeforall.bootcamp.javabank.model.Customer;
 import io.codeforall.bootcamp.javabank.model.account.Account;
 import io.codeforall.bootcamp.javabank.persistence.TransactionException;
@@ -12,16 +12,16 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-public class JDBCCustomerDao implements CustomerDao {
+public class JPACustomerDao implements CustomerDao {
 
-    private JDBCSessionManager sm;
-    private JDBCAccountDao accountDao;
+    private JPASessionManager sm;
+    private JPAAccountDao accountDao;
 
-    public void setAccountDAO(JDBCAccountDao JDBCAccountDao) {
+    public void setAccountDAO(JPAAccountDao JDBCAccountDao) {
         this.accountDao = JDBCAccountDao;
     }
 
-    public void setConnectionManager(JDBCSessionManager JDBCSessionManager) {
+    public void setConnectionManager(JPASessionManager JDBCSessionManager) {
         this.sm = JDBCSessionManager;
     }
 

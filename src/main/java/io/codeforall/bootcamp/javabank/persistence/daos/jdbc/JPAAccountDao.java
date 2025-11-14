@@ -1,12 +1,16 @@
 package io.codeforall.bootcamp.javabank.persistence.daos.jdbc;
 
+import io.codeforall.bootcamp.javabank.model.account.AbstractAccount;
 import io.codeforall.bootcamp.javabank.persistence.daos.AccountDao;
-import io.codeforall.bootcamp.javabank.persistence.jdbc.JDBCSessionManager;
+import io.codeforall.bootcamp.javabank.persistence.jdbc.JPASessionManager;
 import io.codeforall.bootcamp.javabank.factories.AccountFactory;
 import io.codeforall.bootcamp.javabank.model.account.Account;
 import io.codeforall.bootcamp.javabank.model.account.AccountType;
 import io.codeforall.bootcamp.javabank.persistence.TransactionException;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.TypedQuery;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,46 +18,36 @@ import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
 
-public class JDBCAccountDao implements AccountDao {
+public class JPAAccountDao implements AccountDao {
 
-    private JDBCSessionManager sm;
+    private EntityManager em;
+    private JPASessionManager sm;
+    private EntityManagerFactory emf;
 
-
-    public void setConnectionManager(JDBCSessionManager JDBCSessionManager) {
+    public void setConnectionManager(JPASessionManager JDBCSessionManager) {
         this.sm = JDBCSessionManager;
     }
 
     @Override
-    public List<Account> findAll() {
-        List<Account> accounts = new LinkedList<>();
+    public List<AbstractAccount> findAll() {
+        em = emf.createEntityManager();
 
         try {
-            String query = "SELECT * FROM accounts";
-            Statement statement = sm.getCurrentSession().createStatement();
-            ResultSet resultSet = statement.executeQuery(query);
 
-            while (resultSet.next()) {
+            TypedQuery<AbstractAccount> query =
+                    em.createQuery("SELECT account FROM Accounts account", AbstractAccount.class);
+            return query.getResultList();
 
-                AccountType accountType = AccountType.valueOf(resultSet.getString("account_type"));
-
-                Account account = AccountFactory.createAccount(accountType);
-                account.setId(resultSet.getInt("id"));
-                account.setCustomerId(resultSet.getInt("customer_id"));
-                account.setVersion(resultSet.getInt("version"));
-                account.credit(resultSet.getInt("balance"));
-
-                accounts.add(account);
+        } finally {
+            if (em != null) {
+                em.close();
             }
-            statement.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
 
-        return accounts;
     }
 
     @Override
-    public Account findById(Integer id) {
+    public AbstractAccount findById(Integer id) {
         Account account = null;
 
         try {
@@ -83,6 +77,11 @@ public class JDBCAccountDao implements AccountDao {
         }
 
         return account;
+    }
+
+    @Override
+    public AbstractAccount saveOrUpdate(AbstractAccount modelObject) {
+        return null;
     }
 
     @Override
@@ -154,7 +153,7 @@ public class JDBCAccountDao implements AccountDao {
 
         statement.setString(1, account.getAccountType().name());
         statement.setDouble(2, account.getBalance());
-        statement.setInt(3, account.getCustomerId());
+        statement.setInt(3, account.getCustomer());
 
         statement.executeUpdate();
 
