@@ -2,6 +2,7 @@ package io.codeforall.bootcamp.javabank.services;
 
 import io.codeforall.bootcamp.javabank.model.Customer;
 import io.codeforall.bootcamp.javabank.model.account.Account;
+import io.codeforall.bootcamp.javabank.persistence.SessionManager;
 
 import java.sql.*;
 import java.util.*;
@@ -9,10 +10,10 @@ import java.util.*;
 public class CustomerServiceImpl implements CustomerService {
 
     private AccountService accountService;
-    private ConnectionManager connectionManager;
+    private SessionManager sessionManager;
 
-    public CustomerServiceImpl(ConnectionManager connectionManager) {
-        this.connectionManager = connectionManager;
+    public CustomerServiceImpl(SessionManager sessionManager) {
+        this.sessionManager = sessionManager;
     }
 
     public void setAccountService(AccountService accountService) {
@@ -31,7 +32,7 @@ public class CustomerServiceImpl implements CustomerService {
                     "ON customers.id = accounts.customer_id " +
                     "WHERE customers.id = ?";
 
-            PreparedStatement statement = connectionManager.getConnection().prepareStatement(query);
+            PreparedStatement statement = sessionManager.startSession().prepareStatement(query);
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
 
