@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="services.xml"/>
+
+
+    <bean id="accountFactory" class="io.codeforall.bootcamp.javabank.factories.AccountFactory"/>
+    <bean/>
+
+    <bean id="loginView" class="io.codeforall.bootcamp.javabank.view.LoginView"/>
+
+    <bean id="loginController" class="io.codeforall.bootcamp.javabank.controller.LoginController">
+        <property name="nextController" ref="loginController"/>
+    </bean>
+
+    <bean id="mainView" class="io.codeforall.bootcamp.javabank.view.MainView"/>
+
+    <bean id="mainController" class="io.codeforall.bootcamp.javabank.controller.MainController">
+        <property name="controllerMap">
+            <map>
+                <entry key="1" value-ref="balanceController"/>
+                <entry key="2" value-ref="recipientsController"/>
+                <entry key="3" value-ref="newAccountController"/>
+            </map>
+        </property>
+    </bean>
+
+
+    <bean id="balanceView" class="io.codeforall.bootcamp.javabank.view.BalanceView"/>
+
+    <bean id="balanceController" class="io.codeforall.bootcamp.javabank.controller.BalanceController">
+        <property name="customerService" ref="customerService"/>
+    </bean>
+
+
+    <bean id="newAccountView" class="io.codeforall.bootcamp.javabank.view.NewAccountView"/>
+
+    <bean id="newAccountController" class="io.codeforall.bootcamp.javabank.controller.NewAccountController">
+        <property name="accountService" ref="accountService"/>
+        <property name="accountFactory" ref="accountFactory"/>
+    </bean>
+
+
+
+    <bean id="recipientsView" class="io.codeforall.bootcamp.javabank.view.RecipientsView"/>
+
+    <bean id="recipientsController" class="io.codeforall.bootcamp.javabank.controller.RecipientsController">
+        <property name="customerService" ref="customerService"/>
+    </bean>
+
+</beans>

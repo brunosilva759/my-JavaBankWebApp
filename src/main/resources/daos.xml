@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="spring-config.xml"/>
+
+    <bean id="sessionManager" class="io.codeforall.bootcamp.javabank.persistence.jpa.JpaSessionManager">
+        <constructor-arg name="emf" ref="emFactory"/>
+    </bean>
+
+    <bean id="transactionManager" class="io.codeforall.bootcamp.javabank.persistence.jpa.JpaTransactionManager">
+        <constructor-arg name="sm" ref="sessionManager"/>
+    </bean>
+
+    <bean id="accountDAO" class="io.codeforall.bootcamp.javabank.persistence.dao.jpa.JpaAccountDao">
+        <constructor-arg name="sm" ref="sessionManager"/>
+    </bean>
+
+    <bean id="customerDAO" class="io.codeforall.bootcamp.javabank.persistence.dao.jpa.JpaCustomerDao">
+        <constructor-arg name="sm" ref="sessionManager"/>
+    </bean>
+
+    <bean id="recipientDAO" class="io.codeforall.bootcamp.javabank.persistence.dao.jpa.JpaRecipientDao">
+        <constructor-arg name="sm" ref="sessionManager"/>
+    </bean>
+
+</beans>
