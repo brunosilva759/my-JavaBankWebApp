@@ -19,9 +19,13 @@ public class App {
 
 
         App app = new App();
+
         ConfigurableApplicationContext configurableApplicationContext = new ClassPathXmlApplicationContext("spring-config.xml");
+
         Controller controller = configurableApplicationContext.getBean("loginController", Controller.class);
+
         controller.init();
+
         configurableApplicationContext.close();
 
 
