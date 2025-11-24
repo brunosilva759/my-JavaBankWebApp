@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <bean id="authService" class="io.codeforall.bootcamp.javabank.services.AuthServiceImpl">
         <property name="customerService" ref="customerService"/>
     </bean>
 
     <bean id="customerService" class="io.codeforall.bootcamp.javabank.services.CustomerServiceImpl">
-        <property name="transactionManager" ref="transactionManager"/>
         <property name="customerDao" ref="customerDao"/>
     </bean>
 
     <bean id="accountService" class="io.codeforall.bootcamp.javabank.services.AccountServiceImpl">
-        <property name="transactionManager" ref="transactionManager"/>
         <property name="accountDao" ref="accountDao"/>
     </bean>
 
     <bean id="accountFactory" class="io.codeforall.bootcamp.javabank.factories.AccountFactory"/>
+
+    <bean id="tx" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="emFactory"/>
+    </bean>
+
+    <!-- Activate annotation-driven transactions -->
+    <tx:annotation-driven transaction-manager="tx"/>
+
+
 
 </beans>

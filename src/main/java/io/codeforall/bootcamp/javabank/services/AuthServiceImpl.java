@@ -1,6 +1,7 @@
 package io.codeforall.bootcamp.javabank.services;
 
 import io.codeforall.bootcamp.javabank.persistence.model.Customer;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 

@@ -1,7 +1,6 @@
 package io.codeforall.bootcamp.javabank.persistence.jpa.dao;
 
 import io.codeforall.bootcamp.javabank.persistence.model.Recipient;
-import io.codeforall.bootcamp.javabank.persistence.TransactionException;
 import io.codeforall.bootcamp.javabank.persistence.dao.jpa.JpaRecipientDao;
 import io.codeforall.bootcamp.javabank.persistence.jpa.JpaSessionManager;
 import org.hibernate.HibernateException;

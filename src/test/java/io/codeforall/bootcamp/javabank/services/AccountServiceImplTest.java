@@ -3,8 +3,6 @@ package io.codeforall.bootcamp.javabank.services;
 import io.codeforall.bootcamp.javabank.persistence.model.account.Account;
 import io.codeforall.bootcamp.javabank.persistence.model.account.CheckingAccount;
 import io.codeforall.bootcamp.javabank.persistence.model.account.SavingsAccount;
-import io.codeforall.bootcamp.javabank.persistence.TransactionException;
-import io.codeforall.bootcamp.javabank.persistence.TransactionManager;
 import io.codeforall.bootcamp.javabank.persistence.dao.AccountDao;
 import io.codeforall.bootcamp.javabank.persistence.jpa.JpaTransactionManager;
 import org.junit.Before;
