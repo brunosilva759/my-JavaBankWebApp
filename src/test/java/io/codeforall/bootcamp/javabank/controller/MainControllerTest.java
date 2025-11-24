@@ -40,6 +40,7 @@ public class MainControllerTest {
         controllerMap.put(UserOptions.GET_BALANCE.getOption(), ctrl2);
 
         // wire them to mainController
+
         mainController.setControllerMap(controllerMap);
         mainController.setAuthService(authService);
         mainController.setView(view);

@@ -1,6 +1,5 @@
 package io.codeforall.bootcamp.javabank.view;
 
-import io.codeforall.bootcamp.javabank.controller.NewAccountController;
 import org.junit.Before;
 import org.junit.Test;
 

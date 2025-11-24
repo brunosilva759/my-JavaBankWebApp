@@ -8,7 +8,7 @@ import io.codeforall.bootcamp.javabank.persistence.jpa.JpaIntegrationTestHelper;
 import org.junit.Before;
 import org.junit.Test;
 
-import javax.persistence.Query;
+import jakarta.persistence.Query;
 import java.util.List;
 
 import static org.junit.Assert.*;

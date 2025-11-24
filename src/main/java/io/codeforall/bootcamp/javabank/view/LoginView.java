@@ -1,7 +1,6 @@
 package io.codeforall.bootcamp.javabank.view;
 
 import org.academiadecodigo.bootcamp.scanners.integer.IntegerInputScanner;
-import io.codeforall.bootcamp.javabank.controller.LoginController;
 
 /**
  * A view shown at login

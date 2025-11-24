@@ -1,6 +1,7 @@
 package io.codeforall.bootcamp.javabank.services.mock;
 
 import io.codeforall.bootcamp.javabank.persistence.model.AbstractModel;
+import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -10,6 +11,7 @@ import java.util.Map;
  * A generic mock service to be used as a base for concrete mock service implementations
  * @param <T> the model type
  */
+@Service
 public abstract class AbstractMockService<T extends AbstractModel> {
 
     protected Map<Integer, T> modelMap = new HashMap<>();

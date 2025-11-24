@@ -1,7 +1,5 @@
 package io.codeforall.bootcamp.javabank.view;
 
-import io.codeforall.bootcamp.javabank.controller.NewAccountController;
-
 /**
  * A view shown at new account creation
  *

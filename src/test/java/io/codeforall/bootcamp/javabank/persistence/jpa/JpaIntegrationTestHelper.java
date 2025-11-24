@@ -5,8 +5,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
 
 public class JpaIntegrationTestHelper {
 

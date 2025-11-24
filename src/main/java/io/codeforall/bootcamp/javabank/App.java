@@ -1,7 +1,5 @@
 package io.codeforall.bootcamp.javabank;
 
-import io.codeforall.bootcamp.javabank.controller.Controller;
-import io.codeforall.bootcamp.javabank.controller.LoginController;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class App {

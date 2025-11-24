@@ -2,7 +2,6 @@ package io.codeforall.bootcamp.javabank.view;
 
 import org.academiadecodigo.bootcamp.InputScanner;
 import org.academiadecodigo.bootcamp.Prompt;
-import io.codeforall.bootcamp.javabank.controller.LoginController;
 import org.junit.Before;
 import org.junit.Test;
 
