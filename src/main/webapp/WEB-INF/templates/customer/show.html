@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>JavaBank</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          modelType="text/css"/>
+    <script modelType="application/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script modelType="application/javascript" async
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<div>
+
+<h1> Customer <span th:text = "${customer.id}"> </span> </h1>
+
+<h4>first name: <span th:text = "${customer.firstName}"></span> </h4>
+<h4>last name: <span th:text = "${customer.lastName}"></span></h4>
+<h4> email: <span th:text = "${customer.email}"></span></h4>
+<h4> phone: <span th:text = "${customer.phone}"></span></h4>
+
+</div>
+
+
+
+<div class="container">
+    <h2>Customer List</h2>
+    <div th:if="${not #lists.isEmpty(accounts)}">
+        <table class="table table-striped">
+            <tr>
+                <th>#</th>
+                <th>Balance</th>
+            </tr>
+
+            <tr th:each="account : ${accounts}">
+                <td th:text="${account.id}"></td>
+                <td th:text="${account.balance}"></td>
+            </tr>
+        </table>
+        <a href = /javabank1/customer/list> </a>
+        <button> Customer List </button>
+    </div>
+</div>
+    </body>
+</html>
+

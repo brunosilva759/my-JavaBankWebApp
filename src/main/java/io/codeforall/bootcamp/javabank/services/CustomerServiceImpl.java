@@ -19,6 +19,7 @@ import java.util.stream.Collectors;
 public class CustomerServiceImpl implements CustomerService {
 
     private CustomerDao customerDao;
+    private Customer customer;
 
     /**
      * Sets the customer data access object
@@ -74,6 +75,13 @@ public class CustomerServiceImpl implements CustomerService {
                 .collect(Collectors.toSet());
     }
 
+    @Override
+    @Transactional
+    public void deleteCustomer(Integer id) {
+        customerDao.delete(id);
+    }
+
+
     /**
      * @see CustomerService#listRecipients(Integer)
      */
@@ -89,4 +97,7 @@ public class CustomerServiceImpl implements CustomerService {
 
         return new ArrayList<>(customer.getRecipients());
     }
+
+
+
 }
