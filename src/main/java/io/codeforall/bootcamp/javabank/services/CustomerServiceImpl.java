@@ -128,4 +128,12 @@ public class CustomerServiceImpl implements CustomerService {
         customer.removeRecipient(recipient);
         customerDao.saveOrUpdate(customer);
     }
+
+    @Override
+    public Customer save(Customer customer) {
+       customerDao.saveOrUpdate(customer);
+       return customer;
+    }
+
+
 }

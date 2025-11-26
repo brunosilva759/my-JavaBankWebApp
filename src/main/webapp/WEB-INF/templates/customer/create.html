@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <thymeleaf th:replace="header :: header"/>
+</head>
+<body>
+
+<form th:object="${customerDTO}" th:action="@{'/customer/create'}" method="post">
+
+    <label>First Name:</label>
+    <input type="text" th:field="*{firstName}"/>
+    <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
+
+
+    <label>Last Name:</label>
+    <input type="text" th:field="*{lastName}"/>
+    <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
+
+
+    <label> Email:</label>
+    <input type="text" th:field="*{email}"/>
+    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+
+
+    <label>Phone:</label>
+    <input type="text" th:field="*{phone}"/>
+    <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
+
+
+    <div>
+        <input type="submit" value="Submit"/>
+    </div>
+
+
+</form>
+
+</body>
+</html>

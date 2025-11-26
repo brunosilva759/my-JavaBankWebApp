@@ -1,10 +1,15 @@
 package io.codeforall.bootcamp.javabank.controller;
 
-import io.codeforall.bootcamp.javabank.services.CustomerService;
+import io.codeforall.bootcamp.javabank.persistence.dto.CustomerDto;
 import io.codeforall.bootcamp.javabank.persistence.model.Customer;
+import io.codeforall.bootcamp.javabank.services.CustomerService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class CustomerController {
 
     private CustomerService customerService;
-
     /**
      * Sets the customer service
      *
@@ -78,4 +82,34 @@ public class CustomerController {
         customerService.removeRecipient(cid, rid);
         return "redirect:/customer/" + cid;
     }
+
+
+
+
+
+
+    @RequestMapping(method = RequestMethod.GET, path = "/create")
+    public String showForm(Model model) {
+        model.addAttribute("customerDTO", new CustomerDto());
+        return "customer/create";
+    }
+
+
+    @RequestMapping(method = RequestMethod.POST, path = "/create")
+    public String saveCustomer(@Valid @ModelAttribute CustomerDto newCustomer, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "customer/list";
+        }
+        Customer customer = new Customer();
+        customerService.save(customer);
+
+        return "redirect:/customer/list";
+    }
+
+
+
+//    @RequestMapping(path = "/editor", method = RequestMethod.GET)
+//    public String editCustomer() {
+//    }
+
 }
