@@ -5,35 +5,50 @@
     <thymeleaf th:replace="header :: header"/>
 </head>
 <body>
+<div class="detail">
 
 <form th:object="${customerDTO}" th:action="@{'/customer/create'}" method="post">
+
+    <h1>New customer</h1>
+
+    <br>
 
     <label>First Name:</label>
     <input type="text" th:field="*{firstName}"/>
     <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
 
+    <br>
+    <br>
 
     <label>Last Name:</label>
     <input type="text" th:field="*{lastName}"/>
     <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
 
+    <br>
+    <br>
 
     <label> Email:</label>
     <input type="text" th:field="*{email}"/>
     <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
 
+    <br>
+    <br>
 
     <label>Phone:</label>
     <input type="text" th:field="*{phone}"/>
     <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
 
+    <br>
+    <br>
 
     <div>
         <input type="submit" value="Submit"/>
     </div>
 
-
 </form>
 
+</div>
+
 </body>
+
 </html>

@@ -1,6 +1,7 @@
 package io.codeforall.bootcamp.javabank.services;
 
 import io.codeforall.bootcamp.javabank.errors.ErrorMessage;
+import io.codeforall.bootcamp.javabank.persistence.dto.CustomerDto;
 import io.codeforall.bootcamp.javabank.persistence.model.Recipient;
 import io.codeforall.bootcamp.javabank.persistence.model.account.Account;
 import io.codeforall.bootcamp.javabank.persistence.model.Customer;
@@ -129,6 +130,7 @@ public class CustomerServiceImpl implements CustomerService {
         customerDao.saveOrUpdate(customer);
     }
 
+    @Transactional
     @Override
     public Customer save(Customer customer) {
        customerDao.saveOrUpdate(customer);

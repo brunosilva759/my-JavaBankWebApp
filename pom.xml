@@ -139,11 +139,6 @@
         </dependency>
 
         <!-- JSR-301/3 validation -->
-        <dependency>
-            <groupId>org.hibernate.validator</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>7.0.1.Final</version>
-        </dependency>
 
     </dependencies>
 

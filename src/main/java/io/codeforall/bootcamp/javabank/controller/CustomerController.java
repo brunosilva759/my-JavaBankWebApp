@@ -1,5 +1,6 @@
 package io.codeforall.bootcamp.javabank.controller;
 
+import io.codeforall.bootcamp.javabank.mapper.CustomerMapper;
 import io.codeforall.bootcamp.javabank.persistence.dto.CustomerDto;
 import io.codeforall.bootcamp.javabank.persistence.model.Customer;
 import io.codeforall.bootcamp.javabank.services.CustomerService;
@@ -20,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/customer")
 public class CustomerController {
+
+    private CustomerMapper mapper= new CustomerMapper();
 
     private CustomerService customerService;
     /**
@@ -98,10 +101,10 @@ public class CustomerController {
     @RequestMapping(method = RequestMethod.POST, path = "/create")
     public String saveCustomer(@Valid @ModelAttribute CustomerDto newCustomer, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "customer/list";
+            return "customer/create";
         }
-        Customer customer = new Customer();
-        customerService.save(customer);
+
+        customerService.save(mapper.toEntity(newCustomer));
 
         return "redirect:/customer/list";
     }
