@@ -55,20 +55,20 @@ public class CustomerRest {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/customer/{id}/account")
-    public  ResponseEntity<AccountDto> getCustomerAccounts(@PathVariable Integer id) {
+    public  ResponseEntity<List<AccountDto>> getCustomerAccounts(@PathVariable Integer id) {
 
         Customer customer = customerService.get(id);
-        List<AccountDto> accountList = toAccountDto.convert(customer.getAccounts());
+        List<Account> accounts = customer.getAccounts();
+        List<AccountDto> accountList = toAccountDto.convert(accounts);
 
-        return new ResponseEntity<AccountDto>((AccountDto) accountList, HttpStatus.OK);
+        return new ResponseEntity<List<AccountDto>>(accountList, HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/customer/{cid}/account/{aid}")
-    public ResponseEntity<AccountDto> getSpecificAccount(@PathVariable Integer id) {
+    public ResponseEntity<AccountDto> getSpecificAccount(@PathVariable Integer aid, @PathVariable Integer cid) {
 
-        //Customer customer = customerService.get(id);
-        Account account = accountService.get(id);
-        //customer = account.getCustomer();
+        Customer customer = customerService.get(cid);
+        Account account = accountService.get(aid);
         AccountDto accountDto = toAccountDto.convert(account);
 
         return new ResponseEntity<>(accountDto, HttpStatus.OK);
